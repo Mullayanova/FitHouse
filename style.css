@@ -1,0 +1,762 @@
+@font-face {
+    font-family: TO; 
+    src: local(TO), url(Train_One/TrainOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: TSM; 
+    src: local(TS), url(Tilda-Sans/tilda-sans_medium.ttf);
+}
+
+@font-face {
+    font-family: TSB; 
+    src: local(TS), url(Tilda-Sans/tilda-sans_bold.ttf);
+}
+
+body {
+    margin: 0;
+    background-color: white;
+    font-family: TSM;
+    box-sizing: border-box;
+}
+
+/* Стили для шапки */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background: transparent; /* Изначально прозрачный фон */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    transition: background-color 0.2s; /* Плавный переход цвета */
+    z-index: 100; /* Поверх всех элементов */
+}
+
+header.scrolled {
+    background-color: #121212;
+}
+
+header.black{
+    background-color: #121212;
+}
+
+/* Логотип в шапке */
+.logo img {
+    height: 60px; /* Высота логотипа по умолчанию */
+}
+
+/* Навигация в шапке */
+.nav-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Центрируем навигацию */
+    display: flex;
+    gap: 40px; /* Расстояние между ссылками */
+}
+
+.nav-menu a {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    transition: color 0.3s; /* Плавное изменение цвета текста */
+    letter-spacing: 2px;
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+.nav-menu a:hover {
+    color: #ffda32;
+}
+
+/* Скрытие навигации при бургер-меню */
+.nav-menu.active {
+    transform: translateY(0); /* Возвращаем меню на экран */
+}
+
+.nav-menu.hidden {
+    transform: translateY(-200%); /* Скрываем меню за верх экрана */
+}
+
+/* Адаптивное меню */
+.menu-toggle {
+    display: none; /* Показываем только на мобильных устройствах */
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .logo img {
+        height: 40px; /* Уменьшаем логотип для мобильных */
+    }
+
+    .menu-toggle {
+        display: block; /* Показываем бургер-меню */
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: column; /* Вертикальная навигация */
+        position: absolute;
+        top: 80px; /* Расположение под шапкой */
+        right: 20px;
+        background-color: #121212;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        width: 200px;
+        border-radius: 5px;
+        transform: translateY(-200%); /* Скрываем меню изначально */
+  }
+}
+.banner {
+    position: relative;
+    height: 100vh; /* Полная высота экрана */
+    background: url('img/banner.jpg') no-repeat center/cover; /* Фоновое изображение */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0 50px; 
+    overflow: hidden;
+}
+
+.banner h1 {
+    letter-spacing: 15px;
+    font-family: TO;
+    font-style: italic;
+    color: #ffda32;
+    font-size: 80px; 
+    margin: 0;
+}
+
+.banner p {
+    font-size: 24px; 
+    margin: 20px 0;
+    font-family: TSB;
+    color: white;
+    letter-spacing: 3px;
+}
+
+/* Стили для кнопки в баннере */
+.btn {
+    display: inline-block;
+    padding: 10px 20px; 
+    background: #ffda32; 
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-family: TSB;
+    text-decoration: none;
+    border-radius: 5px; 
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background: #ffd932ab; 
+}
+
+/* Стили для светящегося круга */
+.glow {
+    position: absolute;
+    bottom: -400px;
+    right: -400px;
+    width: 900px;
+    height: 800px;
+    background: #ffd9328b; 
+    border-radius: 50%; /* Круглая форма */
+    filter: blur(50px); /* Размытие */
+    z-index: 1; /* Под текстом и кнопкой */
+}
+
+/* Затемнение поверх баннера */
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 0; /* Под текстом и кнопкой */
+}
+
+/* Слой текста и кнопок поверх затемнения */
+.banner h1, .banner p, .btn {
+    position: relative;
+    z-index: 2;
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 768px) {
+    /* Шапка */
+    header {
+        height: 60px;
+        padding: 0 10px;
+    }
+
+    /* Баннер */
+    .banner {
+        padding: 0 20px;
+    }
+
+    .banner h1 {
+        font-size: 40px;
+        letter-spacing: 5px;
+    }
+
+    .banner p {
+        font-size: 18px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .glow {
+        width: 400px; /* Уменьшаем размер светящегося круга */
+        height: 400px;
+        bottom: -200px;
+        right: -200px;
+    }
+}
+
+.about-us {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.about {
+    flex: 1;
+    padding: 0 100px;
+    font-size: 20px;
+    color: #000000;
+}
+
+h2{
+    font-family: TSB;
+    font-size: 40px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.about p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #000000;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 65%;
+    border-radius: 30px;
+    border: solid 10px #ffda32;
+}
+
+@media (max-width: 768px) {
+    .about-us {
+        flex-direction: column; /* Вертикальное расположение */
+        padding: 20px;
+    }
+
+    .about {
+        padding: 0 20px; /* Уменьшаем отступы */
+        text-align: center; /* Центрируем текст */
+    }
+
+    .about-image img {
+        max-width: 100%; /* Увеличиваем изображение */
+        border-width: 5px; /* Уменьшаем толщину рамки */
+    }
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px 100px;
+    background-color: #121212;
+}
+
+.feature {
+    text-align: center;
+    max-width: 500px;
+}
+
+.feature img {
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.feature span {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white;
+    font-family: TSB;
+}
+
+.feature hr {
+    width: 200px;
+    margin: auto;
+    margin-bottom: 20px;
+    border: 1px solid #ffda32;
+}
+
+.feature p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #ffffff;
+}
+
+.photo-slider {
+    background-color: #ffffff;
+}
+
+.photo-slider h2 {
+    text-align: center;
+    margin: 30px 0;
+}
+
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        padding: 20px; /* Уменьшаем отступы */
+    }
+    
+    .feature {
+        max-width: 100%; /* Занимаем всю ширину */
+        margin-bottom: 30px; /* Добавляем отступ между элементами */
+    }
+    
+    .feature hr {
+        width: 100px; /* Уменьшаем длину линии */
+    }
+}
+
+.slider {
+    width: 70%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slider-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.slider-nav button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    width: 5%;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .slider {
+        width: 90%; /* Занимаем всю ширину */
+    }
+    
+    .slider-nav button {
+        padding: 5px 10px; /* Уменьшаем размер кнопок */
+    }
+}
+
+.application-form {
+    display: flex;
+    height: 600px;
+    margin-top: 30px;
+    background-color: #ffda32;
+}
+
+.application-form span {
+    font-family: TSB;
+    text-align: center;
+    margin: auto;
+    font-size: 50px;
+    color: #000000;
+}
+
+.form-container {
+    width: 40%;
+    margin: auto;
+    margin-right: 20px;
+
+}
+
+legend{
+    color:  black;
+    font-family: TSB;
+    font-size: 20px;
+}
+
+fieldset{
+    background-color: #ffffff;
+    border-color: #000000;
+}
+
+input,
+button {
+    width: 94%;
+    padding: 15px;
+    border: solid 2px #ffda32;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+input {
+    background-color: #ffffff;
+    color: #636161;
+}
+
+button {
+    font-family: TSB;
+    background-color: #ffda32;
+    color: #000000;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #ffd932bb;
+}
+
+label {
+    color: #000000;
+    padding: 10px 0;
+    font-size: 20px;
+    display: block;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input {
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .application-form {
+        flex-direction: column; /* Вертикальное расположение */
+        height: auto; /* Автоматическая высота */
+        padding: 20px; /* Добавляем отступы */
+    }
+
+    .application-form span {
+        font-size: 30px; /* Уменьшаем размер текста */
+    }
+
+    .form-container {
+        width: 100%; /* Занимаем всю ширину */
+        margin: 20px 0; /* Добавляем отступы */
+    }
+
+    input,
+    button {
+        width: 92%; /* Занимаем всю ширину */
+    }
+}
+
+.footer {
+    display: flex;
+    background-color:#121212;
+    color: #fff;
+    font-size: 20px;
+}
+
+.footer .footer-column {
+    margin: 0 200px 0 30px;
+}
+
+@media (max-width: 768px) {
+    .footer .footer-column {
+        margin: auto; /* Уменьшаем отступы */
+    }
+}
+
+/*О нас*/
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    background-color:#ffffff;
+    margin-top: 60px;
+}
+
+.about-text {
+    flex: 1;
+    margin: 0 90px;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.about-img {
+    flex: 1;
+    text-align: center;
+}
+
+.about-img img {
+    margin-top: 50px;
+    width: 70%;
+    border-radius: 10px;
+    border: solid 5px #ffda32;
+}
+
+.about-section hr{
+    width: 100%;
+    color: #121212;
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column; /* Вертикальное расположение */
+        margin-top: 30px; /* Уменьшаем отступ сверху */
+    }
+
+    .about-text {
+        margin: 0 20px; /* Уменьшаем отступы */
+    }
+
+    .about-img img {
+        margin-top: 20px; /* Уменьшаем отступ сверху */
+        width: 90%; /* Увеличиваем ширину изображения */
+        border-width: 3px; /* Уменьшаем толщину рамки */
+    }
+
+    .about-section hr {
+        width: 90%; /* Уменьшаем ширину линии */
+        margin: 20px auto; /* Центрируем линию */
+    }
+}
+
+.advantages-section {
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0 90px;
+}
+
+.advantages-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.advantages-list p {
+    color: #000000;
+    width: 80%;
+    height: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    border: solid 5px #ffda32;
+}
+
+@media (max-width: 768px) {
+    .advantages-section {
+        margin: 0 20px; /* Уменьшаем отступы */
+    }
+
+    .advantages-list {
+        grid-template-columns: 1fr; /* Один столбец */
+        margin: auto;
+        gap: 10px; /* Уменьшаем расстояние между элементами */
+    }
+
+    .advantages-list p {
+        width: 90%; /* Занимаем всю ширину */
+        height: auto; /* Автоматическая высота */
+        padding: 15px; /* Уменьшаем отступы внутри */
+        font-size: 16px; /* Уменьшаем размер текста */
+        border-width: 3px; /* Уменьшаем толщину рамки */
+    }
+}
+
+/*Услуги*/
+.services-section {
+    padding: 60px;
+    text-align: left;
+}
+
+.services-section h2{
+    margin-left: 70px;
+}
+.services-section p{
+    margin-left: 70px;
+    }
+
+.services-section p {
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: #000000;
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-item {
+    border: solid 3px #ffda32;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    width: 400px;
+    height: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.service-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: scale(1.05);
+}
+
+.service-item:hover img {
+    transform: scale(1.1);
+}
+
+.service-title {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.modal-content p {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.close {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+/*Контакты*/
+.contact-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.info-section{
+    width: 50%;
+    margin-left: 60px;
+    line-height: 30px;
+}
+
+.form-section {
+    width: 60%;
+    height: 650px;
+    margin: 70px;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column; /* Вертикальное расположение */
+        margin-top: 30px; /* Уменьшаем отступ сверху */
+        padding: 10px; /* Уменьшаем отступы */
+    }
+
+    .info-section {
+        width: 100%; /* Занимаем всю ширину */
+        margin-left: 0; /* Убираем отступ слева */
+        text-align: center; /* Центрируем текст */
+        font-size: 18px; /* Уменьшаем размер текста */
+        line-height: 1.5; /* Уменьшаем межстрочный интервал */
+    }
+
+    .form-section {
+        width: 95%; /* Занимаем всю ширину */
+        height: auto; /* Автоматическая высота */
+        margin: 20px 0; /* Уменьшаем отступы */
+        padding: 10px; /* Добавляем отступы внутри */
+    }
+
+    iframe {
+        width: 90%;
+    }
+}
