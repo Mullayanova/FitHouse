@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitHouse</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.tools.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Логотип">
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О нас</a>
+            <a href="service.html">Услуги</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+        <div class="menu-toggle" aria-label="Открыть меню">☰</div>
+    </header>
+    <section class="banner">
+        <h1>FitHouse</h1>
+        <p>МЕСТО, ГДЕ ЗАБОТА О ЗДОРОВЬЕ, <br> ГАРМОНИЯ ДУШИ И СИЛА ТЕЛА СТАНОВЯТСЯ <br> ЧАСТЬЮ ВАШЕЙ ЖИЗНИ!</p>
+        <a href="contacts.html" class="btn">Отправить заявку</a>
+        <div class="glow"></div>
+    </section>
+    <section class="about-us">
+        <div class="about">
+          <h2>О нас</h2>
+          <p>Добро пожаловать в FitHouse — пространство, где комфорт и забота о вашем здоровье начинают образ жизни! Наша цель — создать пространство, где каждый сможет реализовать свои цели, будь то спорт, отдых или профессиональное развитие.</p>
+        </div>
+        <div class="about-image">
+          <img src="img/about.jpg">
+        </div>
+      </section>
+      <section class="features">
+        <div class="feature">
+            <img src="img/icon_gym.png">
+            <hr>
+            <span>СОВРЕМЕННОЕ <br> ОБОРУДОВАНИЕ</span>
+        </div>
+        <div class="feature">
+            <img src="img/icon_group.png">
+            <hr>
+            <span>ГРУППОВЫЕ ЗАНЯТИЯ</span>
+        </div>
+        <div class="feature">
+            <img src="img/icon_spa.png">
+            <hr>
+            <span>SPA-ЗОНА</span>
+        </div>
+        <div class="feature">
+            <img src="img/icon_glass.png">
+            <hr>
+            <span>ИНДИВИДУАЛЬНЫЙ <br> ПОДХОД</span>
+        </div>
+    </section>
+    <section class="photo-slider">
+        <h2>Наш центр</h2>
+        <div class="slider">
+            <div class="slider-wrapper">
+                <div class="slider-slide">
+                    <img src="img/gym.jpg">
+                </div>
+                <div class="slider-slide">
+                    <img src="img/pool.jpg">
+                </div>
+                <div class="slider-slide">
+                    <img src="img/sauna.jpg">
+                </div>
+                <div class="slider-slide">
+                    <img src="img/hammam.jpg">
+                </div>
+                <div class="slider-slide">
+                    <img src="img/changing_room.jpg">
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+    <section class="application-form">
+        <span>СЕЙЧАС ЛУЧШЕЕ ВРЕМЯ, <br> ЧТОБЫ НАЧАТЬ!</span>
+        <div class="form-container">
+            <form>
+                <fieldset>
+                    <legend> Свяжитесь с нами </legend>
+                <label for="name">Ваше имя</label>
+                <input type="text" id="name" name="name" placeholder="Имя" required>
+
+                <label for="surname">Фамилия</label>
+                <input type="text" id="surname" name="surname" placeholder="Фамилия" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+
+                <label for="phone">Номер телефона</label>
+                <input type="tel" id="phone" name="phone" placeholder="Номер телефона" required>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="agree" name="agree" required>
+                    <label for="agree">Согласен с политикой конфиденциальности</label>
+                </div>
+
+                <button type="submit">Отправить заявку</button>
+            </fieldset>
+            </form>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-column">
+            <p>Контакты:</p>
+            <p>+7 (999) 999-99-99</p>
+            <p>fithouse@mail.ru</p>
+        </div>
+        <div class="footer-column">
+            <p>Адрес:</p>
+            <p>г. Москва</p>
+            <p>ул. Фадеева, 4А</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

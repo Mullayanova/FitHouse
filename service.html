@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.tools.min.js"></script>
+</head>
+<body>
+    <header class="black">
+        <div class="logo">
+            <img src="img/logo.png" alt="Логотип">
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О нас</a>
+            <a href="service.html">Услуги</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+        <div class="menu-toggle" aria-label="Открыть меню">☰</div>
+    </header>
+    <section class="services-section">
+        <h2>Наши услуги</h2>
+        <div class="services-grid">
+            <div class="service-item" onclick="openModal('Тренажерный зал', 'Наш тренажерный зал оснащен современным оборудованием для силовых и кардиотренировок. Просторные залы, удобные тренажёры и комфортная атмосфера - идеальные условия для ваших тренировок, независимо от уровня подготовки.')">
+                <img src="img/gym.jpg">
+                <div class="service-title">ТРЕНАЖЕРНЫЙ ЗАЛ</div>
+            </div>
+            <div class="service-item" onclick="openModal('Групповые занятия', 'Разнообразие групповых программ для любого возраста и уровня подготовки. От энергичных занятий на аэробайке и танцами, до расслабляющей йоги и пилатеса. Занятия проводятся под руководством профессиональных тренеров, которые помогут вам достичь ваших целей.')">
+                <img src="img/group.jpg">
+                <div class="service-title">ГРУППОВЫЕ ЗАНЯТИЯ</div>
+            </div>
+            <div class="service-item" onclick="openModal('Персональные тренировки', 'Наши сертифицированные тренеры разрабатывают индивидуальную программу тренировок с учетом ваших целей, уровня физической подготовки и особенностей организма. Личный тренер - это гарантия безопасности и удобный подход к вашим тренировкам.')">
+                <img src="img/personal.jpg">
+                <div class="service-title">ПЕРСОНАЛЬНЫЕ ТРЕНИРОВКИ</div>
+            </div>
+            <div class="service-item" onclick="openModal('Бассейн', 'Кристально чистый бассейн с водой комфортной температуры идеально подходит для плавания, аквааэробики или просто расслабления. Здесь вы сможете укрепить свое здоровье и получить заряд энергии.')">
+                <img src="img/pool.jpg">
+                <div class="service-title">БАССЕЙН</div>
+            </div>
+            <div class="service-item" onclick="openModal('Сауна', 'Сауна - это отличный способ расслабиться после тренировки или провести время с пользой для здоровья. Высокая температура усиливает кровообращение, снимает напряжение и помогает восстановиться.')">
+                <img src="img/sauna.jpg">
+                <div class="service-title">САУНА</div>
+            </div>
+            <div class="service-item" onclick="openModal('Хаммам', 'Погрузитесь в атмосферу восточной роскоши в нашем хаммаме. Пар с мягким воздействием на тело, приятными ароматами и теплой обстановкой способствует глубокому расслаблению, детоксикации и восстановлению жизненных сил.')">
+                <img src="img/hammam.jpg">
+                <div class="service-title">ХАММАМ</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-column">
+            <p>Контакты:</p>
+            <p>+7 (999) 999-99-99</p>
+            <p>fithouse@mail.ru</p>
+        </div>
+        <div class="footer-column">
+            <p>Адрес:</p>
+            <p>г. Москва</p>
+            <p>ул. Фадеева, 4А</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

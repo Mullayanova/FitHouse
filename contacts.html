@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.tools.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+    <header class="black">
+        <div class="logo">
+            <img src="img/logo.png" alt="Логотип">
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О нас</a>
+            <a href="service.html">Услуги</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+        <div class="menu-toggle" aria-label="Открыть меню">☰</div>
+    </header>
+    <div class="contact-container">
+        <!-- Адрес и карта -->
+        <div class="info-section">
+            <h2>Контакты:</h2>
+            <p>
+                г. Москва, ул. Фадеева, д. 4А<br>
+                Телефон: +7 (999) 999-99-99<br>
+                Электронный адрес: fithouse@mai.ru
+            </p>
+            <h2>График работы:</h2>
+            <p>
+                понедельник-пятница с 7.00 до 23.00<br>
+                суббота-воскресенье с 9.00 до 23.00
+            </p>
+            <!-- Встроенная карта с меткой -->
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A5a537229042395e7d88d7ed70cf2abff8ddec8b2c740eff5bd2f572ddce18d35&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>
+        </div>
+        <div class="form-section">
+            <form>
+                <fieldset>
+                    <legend> Свяжитесь с нами </legend>
+                <label for="name">Ваше имя</label>
+                <input type="text" id="name" name="name" placeholder="Имя" required>
+
+                <label for="surname">Фамилия</label>
+                <input type="text" id="surname" name="surname" placeholder="Фамилия" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+
+                <label for="phone">Номер телефона</label>
+                <input type="tel" id="phone" name="phone" placeholder="Номер телефона" required>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="agree" name="agree" required>
+                    <label for="agree">Согласен с политикой конфиденциальности</label>
+                </div>
+
+                <button type="submit">Отправить заявку</button>
+            </fieldset>
+            </form>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-column">
+            <p>Контакты:</p>
+            <p>+7 (999) 999-99-99</p>
+            <p>fithouse@mail.ru</p>
+        </div>
+        <div class="footer-column">
+            <p>Адрес:</p>
+            <p>г. Москва</p>
+            <p>ул. Фадеева, 4А</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
